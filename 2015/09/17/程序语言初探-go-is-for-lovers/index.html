@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zb-CN">
+<head>
+    <title>程序语言初探 Go is for lovers &middot; 芊与芊荀</title>
+    <meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="芊荀">
+    
+      <meta name="description" content="Nola Gao&#39;s Blog">
+    
+    
+    <link rel="icon" href="http://www.nolagao.comfavicon.ico">
+    <link rel="apple-touch-icon" href="http://www.nolagao.comapple-touch-icon.png" />
+    <link rel="stylesheet" href="http://www.nolagao.comcss/style.css">
+    <link rel="stylesheet" href="http://www.nolagao.comcss/font-awesome.min.css">
+    <link rel="stylesheet" href="http://www.nolagao.comcss/monokai.css">
+    <link rel="stylesheet" href="http://www.nolagao.comfancybox/jquery.fancybox.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="程序语言初探 Go is for lovers" />
+<meta property="og:description" content="中文内容视觉效果。 Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates. This document is a brief primer on using go templates." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" />
+
+
+<meta property="og:updated_time" content="2015-09-17T13:47:08&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="程序语言初探 Go is for lovers">
+<meta itemprop="description" content="中文内容视觉效果。 Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates. This document is a brief primer on using go templates.">
+
+
+<meta itemprop="dateModified" content="2015-09-17T13:47:08&#43;02:00" />
+<meta itemprop="wordCount" content="1491">
+
+
+
+<meta itemprop="keywords" content="主题,占位符,技术,服饰,潮流,美食,golang,hugo,主题,占位符,程序,编程,静态网站," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="程序语言初探 Go is for lovers"/>
+<meta name="twitter:description" content="中文内容视觉效果。 Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates. This document is a brief primer on using go templates."/>
+
+
+
+    
+
+    
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="http://www.nolagao.com" id="logo"><i class="logo" style="background-image: url('http://www.nolagao.comcss/images/logo.png')"></i><span class="site-title">芊与芊荀</span></a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/">主页</a>
+          
+          
+          
+          
+          
+          
+
+          
+          <a class="main-nav-link" href="/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0">精选文章</a>
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/categories/">类别</a>
+          
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/tags/">标签</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://www.nolagao.comcss/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" results="0" class="search-form-input" placeholder="搜索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="q" value="site:http://www.nolagao.com">
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/">主页</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+          <td><a class="main-nav-link" href="/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0">精选文章</a></td>
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/categories/">类别</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/tags/">标签</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" results="0" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="q" value="site:http://www.nolagao.com">
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   		
+	    <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://www.nolagao.comcss/images/avatar.png">
+      <h2 id="name">芊荀</h2>
+      <h3 id="title">学步者 - 生活家 - 潮人</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>上海</span>
+      
+          <a id="follow" href="http://weibo.com/nolakao">
+              关注
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        6
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          7
+          
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+
+<td><a href="//weibo.com/nolakao" target="_blank" title="Weibo"><i class="fa fa-weibo"></i></a></td>
+
+
+
+
+<td><a href="mailto:nola.kao@outlook.com" title="Email"><i class="fa fa-envelope"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <td><a href="" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+	    
+
+	    
+<section id="main">
+
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+                
+                <img src="http://www.nolagao.combanners/placeholder.png" class="article-banner">
+                
+            
+
+            <header class="article-header">
+    <a href="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers">
+    <h1 class="article-title" itemprop="name">
+        程序语言初探 Go is for lovers
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2015-09-17 13:47:08 &#43;0200 &#43;0200" itemprop="datePublished">2015-09-17</time>
+            &middot;
+            1491
+            字
+            &middot;
+            7
+            分钟阅读时间
+        </div>
+
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                <a class="article-category-link" href="http://www.nolagao.comcategories/%e7%be%8e%e9%a3%9f">美食</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                <a class="article-category-link" href="http://www.nolagao.comtags/%e7%a8%8b%e5%ba%8f">程序</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                
+
+<p>中文内容视觉效果。</p>
+
+<p>Hugo uses the excellent <a href="http://golang.org/&gt;">go</a> <a href="http://golang.org/pkg/html/template/&gt;">html/template</a> library for
+its template engine. It is an extremely lightweight engine that provides a very
+small amount of logic. In our experience that it is just the right amount of
+logic to be able to create a good static website. If you have used other
+template systems from different languages or frameworks you will find a lot of
+similarities in go templates.</p>
+
+<p>This document is a brief primer on using go templates. The <a href="http://golang.org/pkg/html/template/&gt;">go docs</a>
+provide more details.</p>
+
+<h2 id="introduction-to-go-templates:08cfabf6312c9fe10477f4bc9e27bdd5">Introduction to Go Templates</h2>
+
+<p>Go templates provide an extremely simple template language. It adheres to the
+belief that only the most basic of logic belongs in the template or view layer.
+One consequence of this simplicity is that go templates parse very quickly.</p>
+
+<p>A unique characteristic of go templates is they are content aware. Variables and
+content will be sanitized depending on the context of where they are used. More
+details can be found in the <a href="http://golang.org/pkg/html/template/&gt;">go docs</a>.</p>
+
+<h2 id="basic-syntax:08cfabf6312c9fe10477f4bc9e27bdd5">Basic Syntax</h2>
+
+<p>Go lang templates are html files with the addition of variables and
+functions.</p>
+
+<p><strong>Go variables and functions are accessible within {{ }}</strong></p>
+
+<p>Accessing a predefined variable &ldquo;foo&rdquo;:</p>
+
+<pre><code>{{ foo }}
+</code></pre>
+
+<p><strong>Parameters are separated using spaces</strong></p>
+
+<p>Calling the add function with input of 1, 2:</p>
+
+<pre><code>{{ add 1 2 }}
+</code></pre>
+
+<p><strong>Methods and fields are accessed via dot notation</strong></p>
+
+<p>Accessing the Page Parameter &ldquo;bar&rdquo;</p>
+
+<pre><code>{{ .Params.bar }}
+</code></pre>
+
+<p><strong>Parentheses can be used to group items together</strong></p>
+
+<pre><code>{{ if or (isset .Params &quot;alt&quot;) (isset .Params &quot;caption&quot;) }} Caption {{ end }}
+</code></pre>
+
+<h2 id="variables:08cfabf6312c9fe10477f4bc9e27bdd5">Variables</h2>
+
+<p>Each go template has a struct (object) made available to it. In hugo each
+template is passed either a page or a node struct depending on which type of
+page you are rendering. More details are available on the
+<a href="/layout/variables">variables</a> page.</p>
+
+<p>A variable is accessed by referencing the variable name.</p>
+
+<pre><code>&lt;title&gt;{{ .Title }}&lt;/title&gt;
+</code></pre>
+
+<p>Variables can also be defined and referenced.</p>
+
+<pre><code>{{ $address := &quot;123 Main St.&quot;}}
+{{ $address }}
+</code></pre>
+
+<h2 id="functions:08cfabf6312c9fe10477f4bc9e27bdd5">Functions</h2>
+
+<p>Go template ship with a few functions which provide basic functionality. The go
+template system also provides a mechanism for applications to extend the
+available functions with their own. <a href="/layout/functions">Hugo template
+functions</a> provide some additional functionality we believe
+are useful for building websites. Functions are called by using their name
+followed by the required parameters separated by spaces. Template
+functions cannot be added without recompiling hugo.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>{{ add 1 2 }}
+</code></pre>
+
+<h2 id="includes:08cfabf6312c9fe10477f4bc9e27bdd5">Includes</h2>
+
+<p>When including another template you will pass to it the data it will be
+able to access. To pass along the current context please remember to
+include a trailing dot. The templates location will always be starting at
+the /layout/ directory within Hugo.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>{{ template &quot;chrome/header.html&quot; . }}
+</code></pre>
+
+<h2 id="logic:08cfabf6312c9fe10477f4bc9e27bdd5">Logic</h2>
+
+<p>Go templates provide the most basic iteration and conditional logic.</p>
+
+<h3 id="iteration:08cfabf6312c9fe10477f4bc9e27bdd5">Iteration</h3>
+
+<p>Just like in go, the go templates make heavy use of range to iterate over
+a map, array or slice. The following are different examples of how to use
+range.</p>
+
+<p><strong>Example 1: Using Context</strong></p>
+
+<pre><code>{{ range array }}
+    {{ . }}
+{{ end }}
+</code></pre>
+
+<p><strong>Example 2: Declaring value variable name</strong></p>
+
+<pre><code>{{range $element := array}}
+    {{ $element }}
+{{ end }}
+</code></pre>
+
+<p><strong>Example 2: Declaring key and value variable name</strong></p>
+
+<pre><code>{{range $index, $element := array}}
+    {{ $index }}
+    {{ $element }}
+{{ end }}
+</code></pre>
+
+<h3 id="conditionals:08cfabf6312c9fe10477f4bc9e27bdd5">Conditionals</h3>
+
+<p>If, else, with, or, &amp; and provide the framework for handling conditional
+logic in Go Templates. Like range, each statement is closed with <code>end</code>.</p>
+
+<p>Go Templates treat the following values as false:</p>
+
+<ul>
+<li>false</li>
+<li>0</li>
+<li>any array, slice, map, or string of length zero</li>
+</ul>
+
+<p><strong>Example 1: If</strong></p>
+
+<pre><code>{{ if isset .Params &quot;title&quot; }}&lt;h4&gt;{{ index .Params &quot;title&quot; }}&lt;/h4&gt;{{ end }}
+</code></pre>
+
+<p><strong>Example 2: If -&gt; Else</strong></p>
+
+<pre><code>{{ if isset .Params &quot;alt&quot; }}
+    {{ index .Params &quot;alt&quot; }}
+{{else}}
+    {{ index .Params &quot;caption&quot; }}
+{{ end }}
+</code></pre>
+
+<p><strong>Example 3: And &amp; Or</strong></p>
+
+<pre><code>{{ if and (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
+</code></pre>
+
+<p><strong>Example 4: With</strong></p>
+
+<p>An alternative way of writing &ldquo;if&rdquo; and then referencing the same value
+is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
+and skips the block if the variable is absent.</p>
+
+<p>The first example above could be simplified as:</p>
+
+<pre><code>{{ with .Params.title }}&lt;h4&gt;{{ . }}&lt;/h4&gt;{{ end }}
+</code></pre>
+
+<p><strong>Example 5: If -&gt; Else If</strong></p>
+
+<pre><code>{{ if isset .Params &quot;alt&quot; }}
+    {{ index .Params &quot;alt&quot; }}
+{{ else if isset .Params &quot;caption&quot; }}
+    {{ index .Params &quot;caption&quot; }}
+{{ end }}
+</code></pre>
+
+<h2 id="pipes:08cfabf6312c9fe10477f4bc9e27bdd5">Pipes</h2>
+
+<p>One of the most powerful components of go templates is the ability to
+stack actions one after another. This is done by using pipes. Borrowed
+from unix pipes, the concept is simple, each pipeline&rsquo;s output becomes the
+input of the following pipe.</p>
+
+<p>Because of the very simple syntax of go templates, the pipe is essential
+to being able to chain together function calls. One limitation of the
+pipes is that they only can work with a single value and that value
+becomes the last parameter of the next pipeline.</p>
+
+<p>A few simple examples should help convey how to use the pipe.</p>
+
+<p><strong>Example 1 :</strong></p>
+
+<pre><code>{{ if eq 1 1 }} Same {{ end }}
+</code></pre>
+
+<p>is the same as</p>
+
+<pre><code>{{ eq 1 1 | if }} Same {{ end }}
+</code></pre>
+
+<p>It does look odd to place the if at the end, but it does provide a good
+illustration of how to use the pipes.</p>
+
+<p><strong>Example 2 :</strong></p>
+
+<pre><code>{{ index .Params &quot;disqus_url&quot; | html }}
+</code></pre>
+
+<p>Access the page parameter called &ldquo;disqus_url&rdquo; and escape the HTML.</p>
+
+<p><strong>Example 3 :</strong></p>
+
+<pre><code>{{ if or (or (isset .Params &quot;title&quot;) (isset .Params &quot;caption&quot;)) (isset .Params &quot;attr&quot;)}}
+Stuff Here
+{{ end }}
+</code></pre>
+
+<p>Could be rewritten as</p>
+
+<pre><code>{{  isset .Params &quot;caption&quot; | or isset .Params &quot;title&quot; | or isset .Params &quot;attr&quot; | if }}
+Stuff Here
+{{ end }}
+</code></pre>
+
+<h2 id="context-aka-the-dot:08cfabf6312c9fe10477f4bc9e27bdd5">Context (aka. the dot)</h2>
+
+<p>The most easily overlooked concept to understand about go templates is that {{ . }}
+always refers to the current context. In the top level of your template this
+will be the data set made available to it. Inside of a iteration it will have
+the value of the current item. When inside of a loop the context has changed. .
+will no longer refer to the data available to the entire page. If you need to
+access this from within the loop you will likely want to set it to a variable
+instead of depending on the context.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code>  {{ $title := .Site.Title }}
+  {{ range .Params.tags }}
+    &lt;li&gt; &lt;a href=&quot;{{ $baseurl }}/tags/{{ . | urlize | lower  }}&quot;&gt;{{ . }}&lt;/a&gt; - {{ $title }} &lt;/li&gt;
+  {{ end }}
+</code></pre>
+
+<p>Notice how once we have entered the loop the value of {{ . }} has changed. We
+have defined a variable outside of the loop so we have access to it from within
+the loop.</p>
+
+<h1 id="hugo-parameters:08cfabf6312c9fe10477f4bc9e27bdd5">Hugo Parameters</h1>
+
+<p>Hugo provides the option of passing values to the template language
+through the site configuration (for sitewide values), or through the meta
+data of each specific piece of content. You can define any values of any
+type (supported by your front matter/config format) and use them however
+you want to inside of your templates.</p>
+
+<h2 id="using-content-page-parameters:08cfabf6312c9fe10477f4bc9e27bdd5">Using Content (page) Parameters</h2>
+
+<p>In each piece of content you can provide variables to be used by the
+templates. This happens in the <a href="/content/front-matter">front matter</a>.</p>
+
+<p>An example of this is used in this documentation site. Most of the pages
+benefit from having the table of contents provided. Sometimes the TOC just
+doesn&rsquo;t make a lot of sense. We&rsquo;ve defined a variable in our front matter
+of some pages to turn off the TOC from being displayed.</p>
+
+<p>Here is the example front matter:</p>
+
+<pre><code>---
+title: &quot;Permalinks&quot;
+date: &quot;2013-11-18&quot;
+aliases:
+  - &quot;/doc/permalinks/&quot;
+groups: [&quot;extras&quot;]
+groups_weight: 30
+notoc: true
+---
+</code></pre>
+
+<p>Here is the corresponding code inside of the template:</p>
+
+<pre><code>  {{ if not .Params.notoc }}
+    &lt;div id=&quot;toc&quot; class=&quot;well col-md-4 col-sm-6&quot;&gt;
+    {{ .TableOfContents }}
+    &lt;/div&gt;
+  {{ end }}
+</code></pre>
+
+<h2 id="using-site-config-parameters:08cfabf6312c9fe10477f4bc9e27bdd5">Using Site (config) Parameters</h2>
+
+<p>In your top-level configuration file (eg, <code>config.yaml</code>) you can define site
+parameters, which are values which will be available to you in chrome.</p>
+
+<p>For instance, you might declare:</p>
+
+<pre><code class="language-yaml">params:
+  CopyrightHTML: &quot;Copyright &amp;#xA9; 2013 John Doe. All Rights Reserved.&quot;
+  TwitterUser: &quot;spf13&quot;
+  SidebarRecentLimit: 5
+</code></pre>
+
+<p>Within a footer layout, you might then declare a <code>&lt;footer&gt;</code> which is only
+provided if the <code>CopyrightHTML</code> parameter is provided, and if it is given,
+you would declare it to be HTML-safe, so that the HTML entity is not escaped
+again.  This would let you easily update just your top-level config file each
+January 1st, instead of hunting through your templates.</p>
+
+<pre><code>{{if .Site.Params.CopyrightHTML}}&lt;footer&gt;
+&lt;div class=&quot;text-center&quot;&gt;{{.Site.Params.CopyrightHTML | safeHtml}}&lt;/div&gt;
+&lt;/footer&gt;{{end}}
+</code></pre>
+
+<p>An alternative way of writing the &ldquo;if&rdquo; and then referencing the same value
+is to use &ldquo;with&rdquo; instead. With rebinds the context <code>.</code> within its scope,
+and skips the block if the variable is absent:</p>
+
+<pre><code>{{with .Site.Params.TwitterUser}}&lt;span class=&quot;twitter&quot;&gt;
+&lt;a href=&quot;https://twitter.com/{{.}}&quot; rel=&quot;author&quot;&gt;
+&lt;img src=&quot;/images/twitter.png&quot; width=&quot;48&quot; height=&quot;48&quot; title=&quot;Twitter: {{.}}&quot;
+ alt=&quot;Twitter&quot;&gt;&lt;/a&gt;
+&lt;/span&gt;{{end}}
+</code></pre>
+
+<p>Finally, if you want to pull &ldquo;magic constants&rdquo; out of your layouts, you can do
+so, such as in this example:</p>
+
+<pre><code>&lt;nav class=&quot;recent&quot;&gt;
+  &lt;h1&gt;Recent Posts&lt;/h1&gt;
+  &lt;ul&gt;{{range first .Site.Params.SidebarRecentLimit .Site.Recent}}
+    &lt;li&gt;&lt;a href=&quot;{{.RelPermalink}}&quot;&gt;{{.Title}}&lt;/a&gt;&lt;/li&gt;
+  {{end}}&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+
+            </div>
+            <footer class="article-footer">
+    <a data-url="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" data-id="08cfabf6312c9fe10477f4bc9e27bdd5" class="article-share-link">
+        分享
+    </a>
+    
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+    <a href="http://www.nolagao.com/2015/08/03/%E7%B2%89%E4%B8%9D%E7%A6%8F%E5%88%A9-hugo-is-for-lovers" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          上一篇
+      </strong>
+      <div class="article-nav-title">粉丝福利 Hugo is for lovers</div>
+    </a>
+    
+
+    
+    <a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">精选文章</div>
+    </a>
+    
+</nav>
+
+
+    </article>
+	
+	
+	<article class="article article-type-page">
+		<section id="comments" class="themeform">
+
+	<div class="ds-thread" data-thread-key="/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" data-title="程序语言初探 Go is for lovers" data-url="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers"></div>
+
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"nolagao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
+</section>
+
+	</article>
+
+    
+</section>
+
+
+	    
+	    <aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        近期
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/10/%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="程序语言初探 Go is for lovers" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e4%b8%bb%e9%a2%98">
+                        主题
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/10/%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" class="title">主题功能介绍</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-10 16:56:43 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-10</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="程序语言初探 Go is for lovers" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                        占位符
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" class="title">抛弃 Jekyll</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-10 13:07:31 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-10</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="程序语言初探 Go is for lovers" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e6%bd%ae%e6%b5%81">
+                        潮流
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" class="title">精选文章</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-02 21:49:20 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-02</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="程序语言初探 Go is for lovers" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e7%be%8e%e9%a3%9f">
+                        美食
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" class="title">程序语言初探 Go is for lovers</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-09-17 13:47:08 &#43;0200 &#43;0200" itemprop="datePublished">2015-09-17</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/08/03/%E7%B2%89%E4%B8%9D%E7%A6%8F%E5%88%A9-hugo-is-for-lovers" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="程序语言初探 Go is for lovers" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e6%9c%8d%e9%a5%b0">
+                        服饰
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/08/03/%E7%B2%89%E4%B8%9D%E7%A6%8F%E5%88%A9-hugo-is-for-lovers" class="title">粉丝福利 Hugo is for lovers</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-08-03 13:39:46 &#43;0200 &#43;0200" itemprop="datePublished">2015-08-03</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">类别</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e4%b8%bb%e9%a2%98">
+                    主题
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                    占位符
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%8a%80%e6%9c%af">
+                    技术
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%9c%8d%e9%a5%b0">
+                    服饰
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%bd%ae%e6%b5%81">
+                    潮流
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e7%be%8e%e9%a3%9f">
+                    美食
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/golang">
+                    golang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e4%b8%bb%e9%a2%98">
+                    主题
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                    占位符
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e7%a8%8b%e5%ba%8f">
+                    程序
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e7%bc%96%e7%a8%8b">
+                    编程
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99">
+                    静态网站
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签云
+    </h3>
+    <div class="widget tagcloud">
+        
+        <a href="http://www.nolagao.comtags/golang" style="font-size: 12px;">golang</a>
+        
+        <a href="http://www.nolagao.comtags/hugo" style="font-size: 12px;">hugo</a>
+        
+        <a href="http://www.nolagao.comtags/%e4%b8%bb%e9%a2%98" style="font-size: 12px;">主题</a>
+        
+        <a href="http://www.nolagao.comtags/%e5%8d%a0%e4%bd%8d%e7%ac%a6" style="font-size: 12px;">占位符</a>
+        
+        <a href="http://www.nolagao.comtags/%e7%a8%8b%e5%ba%8f" style="font-size: 12px;">程序</a>
+        
+        <a href="http://www.nolagao.comtags/%e7%bc%96%e7%a8%8b" style="font-size: 12px;">编程</a>
+        
+        <a href="http://www.nolagao.comtags/%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99" style="font-size: 12px;">静态网站</a>
+        
+    </div>
+</div>
+
+
+
+
+    <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+
+	    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016
+      Copyright &copy; 2016 NolaGao. 保留所有权利。技术支持由 <a href="//gohugo.io">Hugo</a> 提供。主题由 <a href="http://github.com/ppoffice">PPOffice</a> 提供。
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://www.nolagao.comfancybox/jquery.fancybox.pack.js"></script>
+<script src="http://www.nolagao.comjs/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</body>
+</html>

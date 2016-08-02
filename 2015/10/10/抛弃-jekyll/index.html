@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zb-CN">
+<head>
+    <title>抛弃 Jekyll &middot; 芊与芊荀</title>
+    <meta name="generator" content="Hugo 0.15" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="芊荀">
+    
+      <meta name="description" content="Nola Gao&#39;s Blog">
+    
+    
+    <link rel="icon" href="http://www.nolagao.comfavicon.ico">
+    <link rel="apple-touch-icon" href="http://www.nolagao.comapple-touch-icon.png" />
+    <link rel="stylesheet" href="http://www.nolagao.comcss/style.css">
+    <link rel="stylesheet" href="http://www.nolagao.comcss/font-awesome.min.css">
+    <link rel="stylesheet" href="http://www.nolagao.comcss/monokai.css">
+    <link rel="stylesheet" href="http://www.nolagao.comfancybox/jquery.fancybox.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="抛弃 Jekyll" />
+<meta property="og:description" content="将静态内容移到静态文件夹 Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like ▾ &lt;root&gt;/ ▾ images/ logo.png should become ▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" />
+
+
+<meta property="og:updated_time" content="2015-10-10T13:07:31&#43;02:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="抛弃 Jekyll">
+<meta itemprop="description" content="将静态内容移到静态文件夹 Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like ▾ &lt;root&gt;/ ▾ images/ logo.png should become ▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.">
+
+
+<meta itemprop="dateModified" content="2015-10-10T13:07:31&#43;02:00" />
+<meta itemprop="wordCount" content="809">
+
+
+
+<meta itemprop="keywords" content="主题,占位符,技术,服饰,潮流,美食,golang,hugo,主题,占位符,程序,编程,静态网站," />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="抛弃 Jekyll"/>
+<meta name="twitter:description" content="将静态内容移到静态文件夹 Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like ▾ &lt;root&gt;/ ▾ images/ logo.png should become ▾ &lt;root&gt;/ ▾ static/ ▾ images/ logo.png Additionally, you&rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static."/>
+
+
+
+    
+
+    
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="http://www.nolagao.com" id="logo"><i class="logo" style="background-image: url('http://www.nolagao.comcss/images/logo.png')"></i><span class="site-title">芊与芊荀</span></a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/">主页</a>
+          
+          
+          
+          
+          
+          
+
+          
+          <a class="main-nav-link" href="/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0">精选文章</a>
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/categories/">类别</a>
+          
+          
+          
+          <a class="main-nav-link" href="http://www.nolagao.com/tags/">标签</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://www.nolagao.comcss/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" results="0" class="search-form-input" placeholder="搜索">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="q" value="site:http://www.nolagao.com">
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/">主页</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+          <td><a class="main-nav-link" href="/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0">精选文章</a></td>
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/categories/">类别</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="http://www.nolagao.com/tags/">标签</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" results="0" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="q" value="site:http://www.nolagao.com">
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   		
+	    <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://www.nolagao.comcss/images/avatar.png">
+      <h2 id="name">芊荀</h2>
+      <h3 id="title">学步者 - 生活家 - 潮人</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>上海</span>
+      
+          <a id="follow" href="http://weibo.com/nolakao">
+              关注
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        6
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        
+          7
+          
+        <span>
+            标签
+        </span>
+      </div>
+    </div>
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+
+<td><a href="//weibo.com/nolakao" target="_blank" title="Weibo"><i class="fa fa-weibo"></i></a></td>
+
+
+
+
+<td><a href="mailto:nola.kao@outlook.com" title="Email"><i class="fa fa-envelope"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <td><a href="" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+	    
+
+	    
+<section id="main">
+
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+                
+                <img src="http://www.nolagao.combanners/placeholder.png" class="article-banner">
+                
+            
+
+            <header class="article-header">
+    <a href="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll">
+    <h1 class="article-title" itemprop="name">
+        抛弃 Jekyll
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2015-10-10 13:07:31 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-10</time>
+            &middot;
+            809
+            字
+            &middot;
+            4
+            分钟阅读时间
+        </div>
+
+        
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-folder"></i>
+                
+                <a class="article-category-link" href="http://www.nolagao.comcategories/%e5%8d%a0%e4%bd%8d%e7%ac%a6">占位符</a>
+                
+                
+            </div>
+            
+        
+
+        
+            
+            
+            <div class="article-category">
+                <i class="fa fa-tags"></i>
+                
+                <a class="article-category-link" href="http://www.nolagao.comtags/%e5%8d%a0%e4%bd%8d%e7%ac%a6">占位符</a>
+                
+                
+            </div>
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                
+
+<h2 id="将静态内容移到静态文件夹:964c172ef5e837f03573891408d8d631">将静态内容移到静态文件夹</h2>
+
+<p>Jekyll has a rule that any directory not starting with <code>_</code> will be copied as-is to the <code>_site</code> output. Hugo keeps all static content under <code>static</code>. You should therefore move it all there.
+With Jekyll, something that looked like</p>
+
+<pre><code>▾ &lt;root&gt;/
+    ▾ images/
+        logo.png
+</code></pre>
+
+<p>should become</p>
+
+<pre><code>▾ &lt;root&gt;/
+    ▾ static/
+        ▾ images/
+            logo.png
+</code></pre>
+
+<p>Additionally, you&rsquo;ll want any files that should reside at the root (such as <code>CNAME</code>) to be moved to <code>static</code>.</p>
+
+<h2 id="create-your-hugo-configuration-file:964c172ef5e837f03573891408d8d631">Create your Hugo configuration file</h2>
+
+<p>Hugo can read your configuration as JSON, YAML or TOML. Hugo supports parameters custom configuration too. Refer to the <a href="/overview/configuration/">Hugo configuration documentation</a> for details.</p>
+
+<h2 id="set-your-configuration-publish-folder-to-site:964c172ef5e837f03573891408d8d631">Set your configuration publish folder to <code>_site</code></h2>
+
+<p>The default is for Jekyll to publish to <code>_site</code> and for Hugo to publish to <code>public</code>. If, like me, you have <a href="http://blog.blindgaenger.net/generate_github_pages_in_a_submodule.html"><code>_site</code> mapped to a git submodule on the <code>gh-pages</code> branch</a>, you&rsquo;ll want to do one of two alternatives:</p>
+
+<ol>
+<li><p>Change your submodule to point to map <code>gh-pages</code> to public instead of <code>_site</code> (recommended).</p>
+
+<pre><code>git submodule deinit _site
+git rm _site
+git submodule add -b gh-pages git@github.com:your-username/your-repo.git public
+</code></pre></li>
+
+<li><p>Or, change the Hugo configuration to use <code>_site</code> instead of <code>public</code>.</p>
+
+<pre><code>{
+    ..
+    &quot;publishdir&quot;: &quot;_site&quot;,
+    ..
+}
+</code></pre></li>
+</ol>
+
+<h2 id="convert-jekyll-templates-to-hugo-templates:964c172ef5e837f03573891408d8d631">Convert Jekyll templates to Hugo templates</h2>
+
+<p>That&rsquo;s the bulk of the work right here. The documentation is your friend. You should refer to <a href="http://jekyllrb.com/docs/templates/">Jekyll&rsquo;s template documentation</a> if you need to refresh your memory on how you built your blog and <a href="/layout/templates/">Hugo&rsquo;s template</a> to learn Hugo&rsquo;s way.</p>
+
+<p>As a single reference data point, converting my templates for <a href="http://heyitsalex.net/">heyitsalex.net</a> took me no more than a few hours.</p>
+
+<h2 id="convert-jekyll-plugins-to-hugo-shortcodes:964c172ef5e837f03573891408d8d631">Convert Jekyll plugins to Hugo shortcodes</h2>
+
+<p>Jekyll has <a href="http://jekyllrb.com/docs/plugins/">plugins</a>; Hugo has <a href="/doc/shortcodes/">shortcodes</a>. It&rsquo;s fairly trivial to do a port.</p>
+
+<h3 id="implementation:964c172ef5e837f03573891408d8d631">Implementation</h3>
+
+<p>As an example, I was using a custom <a href="https://github.com/alexandre-normand/alexandre-normand/blob/74bb12036a71334fdb7dba84e073382fc06908ec/_plugins/image_tag.rb"><code>image_tag</code></a> plugin to generate figures with caption when running Jekyll. As I read about shortcodes, I found Hugo had a nice built-in shortcode that does exactly the same thing.</p>
+
+<p>Jekyll&rsquo;s plugin:</p>
+
+<pre><code>module Jekyll
+  class ImageTag &lt; Liquid::Tag
+    @url = nil
+    @caption = nil
+    @class = nil
+    @link = nil
+    // Patterns
+    IMAGE_URL_WITH_CLASS_AND_CAPTION =
+    IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK = /(\w+)(\s+)((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;(\s+)-&gt;((https?:\/\/|\/)(\S+))(\s*)/i
+    IMAGE_URL_WITH_CAPTION = /((https?:\/\/|\/)(\S+))(\s+)&quot;(.*?)&quot;/i
+    IMAGE_URL_WITH_CLASS = /(\w+)(\s+)((https?:\/\/|\/)(\S+))/i
+    IMAGE_URL = /((https?:\/\/|\/)(\S+))/i
+    def initialize(tag_name, markup, tokens)
+      super
+      if markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION_AND_LINK
+        @class   = $1
+        @url     = $3
+        @caption = $7
+        @link = $9
+      elsif markup =~ IMAGE_URL_WITH_CLASS_AND_CAPTION
+        @class   = $1
+        @url     = $3
+        @caption = $7
+      elsif markup =~ IMAGE_URL_WITH_CAPTION
+        @url     = $1
+        @caption = $5
+      elsif markup =~ IMAGE_URL_WITH_CLASS
+        @class = $1
+        @url   = $3
+      elsif markup =~ IMAGE_URL
+        @url = $1
+      end
+    end
+    def render(context)
+      if @class
+        source = &quot;&lt;figure class='#{@class}'&gt;&quot;
+      else
+        source = &quot;&lt;figure&gt;&quot;
+      end
+      if @link
+        source += &quot;&lt;a href=\&quot;#{@link}\&quot;&gt;&quot;
+      end
+      source += &quot;&lt;img src=\&quot;#{@url}\&quot;&gt;&quot;
+      if @link
+        source += &quot;&lt;/a&gt;&quot;
+      end
+      source += &quot;&lt;figcaption&gt;#{@caption}&lt;/figcaption&gt;&quot; if @caption
+      source += &quot;&lt;/figure&gt;&quot;
+      source
+    end
+  end
+end
+Liquid::Template.register_tag('image', Jekyll::ImageTag)
+</code></pre>
+
+<p>is written as this Hugo shortcode:</p>
+
+<pre><code>&lt;!-- image --&gt;
+&lt;figure {{ with .Get &quot;class&quot; }}class=&quot;{{.}}&quot;{{ end }}&gt;
+    {{ with .Get &quot;link&quot;}}&lt;a href=&quot;{{.}}&quot;&gt;{{ end }}
+        &lt;img src=&quot;{{ .Get &quot;src&quot; }}&quot; {{ if or (.Get &quot;alt&quot;) (.Get &quot;caption&quot;) }}alt=&quot;{{ with .Get &quot;alt&quot;}}{{.}}{{else}}{{ .Get &quot;caption&quot; }}{{ end }}&quot;{{ end }} /&gt;
+    {{ if .Get &quot;link&quot;}}&lt;/a&gt;{{ end }}
+    {{ if or (or (.Get &quot;title&quot;) (.Get &quot;caption&quot;)) (.Get &quot;attr&quot;)}}
+    &lt;figcaption&gt;{{ if isset .Params &quot;title&quot; }}
+        {{ .Get &quot;title&quot; }}{{ end }}
+        {{ if or (.Get &quot;caption&quot;) (.Get &quot;attr&quot;)}}&lt;p&gt;
+        {{ .Get &quot;caption&quot; }}
+        {{ with .Get &quot;attrlink&quot;}}&lt;a href=&quot;{{.}}&quot;&gt; {{ end }}
+            {{ .Get &quot;attr&quot; }}
+        {{ if .Get &quot;attrlink&quot;}}&lt;/a&gt; {{ end }}
+        &lt;/p&gt; {{ end }}
+    &lt;/figcaption&gt;
+    {{ end }}
+&lt;/figure&gt;
+&lt;!-- image --&gt;
+</code></pre>
+
+<h3 id="usage:964c172ef5e837f03573891408d8d631">Usage</h3>
+
+<p>I simply changed:</p>
+
+<pre><code>{% image full http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg &quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were &quot;having fun&quot; and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; -&gt;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/ %}
+</code></pre>
+
+<p>to this (this example uses a slightly extended version named <code>fig</code>, different than the built-in <code>figure</code>):</p>
+
+<pre><code>{{% fig class=&quot;full&quot; src=&quot;http://farm5.staticflickr.com/4136/4829260124_57712e570a_o_d.jpg&quot; title=&quot;One of my favorite touristy-type photos. I secretly waited for the good light while we were having fun and took this. Only regret: a stupid pole in the top-left corner of the frame I had to clumsily get rid of at post-processing.&quot; link=&quot;http://www.flickr.com/photos/alexnormand/4829260124/in/set-72157624547713078/&quot; %}}
+</code></pre>
+
+<p>As a bonus, the shortcode named parameters are, arguably, more readable.</p>
+
+<h2 id="finishing-touches:964c172ef5e837f03573891408d8d631">Finishing touches</h2>
+
+<h3 id="fix-content:964c172ef5e837f03573891408d8d631">Fix content</h3>
+
+<p>Depending on the amount of customization that was done with each post with Jekyll, this step will require more or less effort. There are no hard and fast rules here except that <code>hugo server --watch</code> is your friend. Test your changes and fix errors as needed.</p>
+
+<h3 id="clean-up:964c172ef5e837f03573891408d8d631">Clean up</h3>
+
+<p>You&rsquo;ll want to remove the Jekyll configuration at this point. If you have anything else that isn&rsquo;t used, delete it.</p>
+
+<h2 id="a-practical-example-in-a-diff:964c172ef5e837f03573891408d8d631">A practical example in a diff</h2>
+
+<p><a href="http://heyitsalex.net/">Hey, it&rsquo;s Alex</a> was migrated in less than a <em>father-with-kids day</em> from Jekyll to Hugo. You can see all the changes (and screw-ups) by looking at this <a href="https://github.com/alexandre-normand/alexandre-normand/compare/869d69435bd2665c3fbf5b5c78d4c22759d7613a...b7f6605b1265e83b4b81495423294208cc74d610">diff</a>.</p>
+
+            </div>
+            <footer class="article-footer">
+    <a data-url="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" data-id="964c172ef5e837f03573891408d8d631" class="article-share-link">
+        分享
+    </a>
+    
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+    <a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          上一篇
+      </strong>
+      <div class="article-nav-title">精选文章</div>
+    </a>
+    
+
+    
+    <a href="http://www.nolagao.com/2015/10/10/%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          下一篇
+      </strong>
+      <div class="article-nav-title">主题功能介绍</div>
+    </a>
+    
+</nav>
+
+
+    </article>
+	
+	
+	<article class="article article-type-page">
+		<section id="comments" class="themeform">
+
+	<div class="ds-thread" data-thread-key="/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" data-title="抛弃 Jekyll" data-url="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll"></div>
+
+
+
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"nolagao"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+
+
+</section>
+
+	</article>
+
+    
+</section>
+
+
+	    
+	    <aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        近期
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/10/%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="抛弃 Jekyll" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e4%b8%bb%e9%a2%98">
+                        主题
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/10/%E4%B8%BB%E9%A2%98%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" class="title">主题功能介绍</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-10 16:56:43 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-10</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="抛弃 Jekyll" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                        占位符
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/10/%E6%8A%9B%E5%BC%83-jekyll" class="title">抛弃 Jekyll</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-10 13:07:31 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-10</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="抛弃 Jekyll" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e6%bd%ae%e6%b5%81">
+                        潮流
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/10/02/%E7%B2%BE%E9%80%89%E6%96%87%E7%AB%A0" class="title">精选文章</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-10-02 21:49:20 &#43;0200 &#43;0200" itemprop="datePublished">2015-10-02</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="抛弃 Jekyll" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e7%be%8e%e9%a3%9f">
+                        美食
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/09/17/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80%E5%88%9D%E6%8E%A2-go-is-for-lovers" class="title">程序语言初探 Go is for lovers</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-09-17 13:47:08 &#43;0200 &#43;0200" itemprop="datePublished">2015-09-17</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="http://www.nolagao.com/2015/08/03/%E7%B2%89%E4%B8%9D%E7%A6%8F%E5%88%A9-hugo-is-for-lovers" class="thumbnail">
+                    
+                        
+                        <span style="background-image:url(http://www.nolagao.combanners/placeholder.png)" alt="抛弃 Jekyll" class="thumbnail-image"></span>
+                        
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    <p class="item-category">
+                        <a class="article-category-link" href="http://www.nolagao.comcategories/%e6%9c%8d%e9%a5%b0">
+                        服饰
+                        </a>
+                    </p>
+                    
+                    <p class="item-title"><a href="http://www.nolagao.com/2015/08/03/%E7%B2%89%E4%B8%9D%E7%A6%8F%E5%88%A9-hugo-is-for-lovers" class="title">粉丝福利 Hugo is for lovers</a></p>
+                    <p class="item-date">
+                        <time datetime="2015-08-03 13:39:46 &#43;0200 &#43;0200" itemprop="datePublished">2015-08-03</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">类别</h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e4%b8%bb%e9%a2%98">
+                    主题
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                    占位符
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%8a%80%e6%9c%af">
+                    技术
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%9c%8d%e9%a5%b0">
+                    服饰
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e6%bd%ae%e6%b5%81">
+                    潮流
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comcategories/%e7%be%8e%e9%a3%9f">
+                    美食
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签
+    </h3>
+    <div class="widget">
+        <ul class="category-list">
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/golang">
+                    golang
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/hugo">
+                    hugo
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e4%b8%bb%e9%a2%98">
+                    主题
+                </a>
+                <span class="category-list-count">3</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e5%8d%a0%e4%bd%8d%e7%ac%a6">
+                    占位符
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e7%a8%8b%e5%ba%8f">
+                    程序
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e7%bc%96%e7%a8%8b">
+                    编程
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+            <li class="category-list-item">
+                <a class="category-list-link" href="http://www.nolagao.comtags/%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99">
+                    静态网站
+                </a>
+                <span class="category-list-count">1</span>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+    
+
+
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        标签云
+    </h3>
+    <div class="widget tagcloud">
+        
+        <a href="http://www.nolagao.comtags/golang" style="font-size: 12px;">golang</a>
+        
+        <a href="http://www.nolagao.comtags/hugo" style="font-size: 12px;">hugo</a>
+        
+        <a href="http://www.nolagao.comtags/%e4%b8%bb%e9%a2%98" style="font-size: 12px;">主题</a>
+        
+        <a href="http://www.nolagao.comtags/%e5%8d%a0%e4%bd%8d%e7%ac%a6" style="font-size: 12px;">占位符</a>
+        
+        <a href="http://www.nolagao.comtags/%e7%a8%8b%e5%ba%8f" style="font-size: 12px;">程序</a>
+        
+        <a href="http://www.nolagao.comtags/%e7%bc%96%e7%a8%8b" style="font-size: 12px;">编程</a>
+        
+        <a href="http://www.nolagao.comtags/%e9%9d%99%e6%80%81%e7%bd%91%e7%ab%99" style="font-size: 12px;">静态网站</a>
+        
+    </div>
+</div>
+
+
+
+
+    <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+
+	    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016
+      Copyright &copy; 2016 NolaGao. 保留所有权利。技术支持由 <a href="//gohugo.io">Hugo</a> 提供。主题由 <a href="http://github.com/ppoffice">PPOffice</a> 提供。
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="http://www.nolagao.comfancybox/jquery.fancybox.pack.js"></script>
+<script src="http://www.nolagao.comjs/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</body>
+</html>
